@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MobileLab1</string>
+    <string name="action_settings">Settings</string>
+    <string name="Sign_Up">Sign Up</string>
+    <string name="Sign_In">Sign In</string>
+    <string name="Welcome">Welcome</string>
+    <string name="Home">Home</string>
+    <string name="Settings">Settings</string>
+    <string name="Forgot_Password">Forgot Password</string>
+    <string name="Help">Help</string>
+    <string name="facebook_app_id">206760106758418</string>
+    <string name="fb_login_protocol_scheme">fb206760106758418</string>
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">Y5vCHFsYk7qg8XlRYYeqAHj39</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">nstq9qGmCeJoWaLqSDwwaPM0vO8kr6QcWhAosWcHZlPTE3d8fN</string>
+</resources>
