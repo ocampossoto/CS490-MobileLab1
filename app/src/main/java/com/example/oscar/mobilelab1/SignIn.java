@@ -107,36 +107,21 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View v) {
                 Intent signInIntent = mGoogleSignInClient.getSignInIntent();
                 startActivityForResult(signInIntent, 9001);
-                ToIndex(true);
+                ToIndex();
             }
         });
 
     }
     //redirect to index page
-    private void ToIndex(boolean now) {
-        if(now){
-            GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-            if(account != null){
+    private void ToIndex() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
                 Intent intent = new Intent(SignIn.this, IndexPage.class);
                 startActivity(intent);
                 finish();
             }
-            else{
-                return;
-            }
-
-        }
-        else{
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent intent = new Intent(SignIn.this, IndexPage.class);
-                    startActivity(intent);
-                    finish();
-                }
-            }, 1500);
-        }
-
+        }, 1500);
     }
 
     //return to homepage
@@ -155,15 +140,15 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 //go to index page.
-                ToIndex(false);
+                ToIndex();
             }
             @Override
             public void onCancel() {
-
+                ToIndex();
             }
             @Override
             public void onError(FacebookException error) {
-
+                ToIndex();
             }};
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions(Arrays.asList("public_profile"));
@@ -179,7 +164,7 @@ public class SignIn extends AppCompatActivity {
                 // Do something with result, which provides a TwitterSession for making API calls
                 requestEmailAddress(SignIn.this, result.data);
                 //Go to index page
-                ToIndex(false);
+                ToIndex();
             }
 
             @Override

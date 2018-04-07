@@ -33,8 +33,6 @@ public class IndexPage extends AppCompatActivity {
                 //send user to settings page
                 Intent intent = new Intent(IndexPage.this, Settings.class);
                 startActivity(intent);
-                //finish this activity
-                finish();
             }
         });
 
@@ -46,8 +44,6 @@ public class IndexPage extends AppCompatActivity {
                 //send user to help activity
                 Intent intent = new Intent(IndexPage.this, Help.class);
                 startActivity(intent);
-                //finish this activity
-                finish();
             }
         });
 
