@@ -52,6 +52,7 @@ public class SignIn extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //set up twitter sign in
         TwitterConfig config = new TwitterConfig.Builder(this)
                 .logger(new DefaultLogger(Log.DEBUG))
                 .twitterAuthConfig(new TwitterAuthConfig("Y5vCHFsYk7qg8XlRYYeqAHj39", "nstq9qGmCeJoWaLqSDwwaPM0vO8kr6QcWhAosWcHZlPTE3d8fN"))
@@ -71,9 +72,10 @@ public class SignIn extends AppCompatActivity {
         // Build a GoogleSignInClient with the options specified by gso.
         final GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(SignIn.this, gso);
 
+        //twitter login button
         LoginUsingTwitterButton();
 
-        //LoginUsingLoginButton();
+        //facebook login button
         LoginUsingFacbookButton();
 
         //Sign in button send user to index page.
@@ -112,7 +114,7 @@ public class SignIn extends AppCompatActivity {
         });
 
     }
-    //redirect to index page
+    //redirect to index page with delay
     private void ToIndex() {
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -122,14 +124,6 @@ public class SignIn extends AppCompatActivity {
                 finish();
             }
         }, 1500);
-    }
-
-    //return to homepage
-    //Only for twitter since there is an error with it not working after hitting cancel.
-    private void GoToHome(){
-        Intent intent = new Intent(SignIn.this, WelcomeActivity.class);
-        startActivity(intent);
-        finish();
     }
 
 
@@ -176,7 +170,7 @@ public class SignIn extends AppCompatActivity {
             }
         });
     }
-
+    //verify login by requesting email.
     private static void requestEmailAddress(final Context context, TwitterSession session) {
 
         TwitterAuthClient authClient = new TwitterAuthClient();
